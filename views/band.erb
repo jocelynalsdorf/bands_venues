@@ -1,0 +1,41 @@
+<% if @band.venues().any?() %>
+<h1>Here are the venues for <%= @band.name() %></h1>
+<ul>
+  <% @band.venues().each() do |venue| %>
+  <li><a href='/bands/<%=@band.id()%>/venues/<%= venue.id() %>'><%= venue.name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<h1>This band has not played any of our venues.</h1>
+<% end %>
+
+<br>
+<br>
+<h2>Add a venue to this band</h2>
+
+<form action="/bands/<%=@band.id()%>" method="post">
+  <label for="description">Question description</label>
+  <input id="description" name="description" type="text">
+  <br>
+  <br>
+  <label for="first_answer">First answer</label>
+  <input id="first_answer" name="first_answer" type="text">
+
+  <label for="second_answer">Second answer</label>
+  <input id="second_answer" name="second_answer" type="text">
+  <br>
+  <label for="third_answer">Third answer</label>
+  <input id="third_answer" name="third_answer" type="text">
+
+  <label for="fourth_answer">Fourth answer</label>
+  <input id="fourth_answer" name="fourth_answer" type="text">
+  <br>
+  <br>
+  <input id="survey_id" type="hidden" name="survey_id" value="<%@survey.id%>">
+  <button type="submit">Add Question</button>
+</form>
+
+<br>
+<div class="container">
+  <a href="/bands">Back To All Bands</a>
+</div>

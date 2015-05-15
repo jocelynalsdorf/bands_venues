@@ -59,3 +59,7 @@ post('/venues') do
     erb(:errors)
   end
 end
+get ('/bands/:id') do
+  @band = Band.find(params.fetch("id").to_i)
+  erb(:band)
+end

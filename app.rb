@@ -18,7 +18,6 @@ end
 post('/bands') do
   name = params.fetch('name')
   @new_band = Band.new({:name => name})
-
   if @new_band.save()
     erb(:success)
   else
@@ -44,4 +43,19 @@ delete('/bands/:id') do
   @band.delete()
   @bands = Band.all()
   erb(:bands)
+end
+
+get '/venues' do
+  @venues = Venue.all()
+  erb(:venues)
+end
+
+post('/venues') do
+  name = params.fetch('name')
+  @new_venue = Venue.new({:name => name})
+  if @new_venue.save()
+    erb(:success)
+  else
+    erb(:errors)
+  end
 end

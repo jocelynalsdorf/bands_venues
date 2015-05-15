@@ -1,0 +1,22 @@
+<% if @venues.any? %>
+<h2> Here are all the venues we work with:</h2>
+
+<ul>
+  <% @venues.each() do |venue| %>
+  <li><a href="/venues/<%= venue.id() %>"><%= venue.name %></a>
+    <% end %>
+  </ul>
+  <% else %>
+  <h2> We currently have no venues available!</h2>
+  <% end %>
+
+  <h3>Add a New Venue</h3>
+
+  <form action="/venues" method="post">
+    <label for="name">Venue Name</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add Venue</button>
+  </form>
+<br>
+<br>
+  <p><a href="/" >Back to home</a></p>

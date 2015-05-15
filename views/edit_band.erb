@@ -3,14 +3,13 @@
 <form action="/bands/<%= @band.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
-  <label for="name">Rename this band:</label>
-  <input id="name" name="name" type="text">
+  <label for="name">Edit band name:</label>
+  <input id="name" name="name" type="text" placeholder="enter new name">
 
   <button class="submit">Update Band</button>
 </form>
 
-
-<p>Delete a Band</p>
+<br>
 <br>
 <form action="/bands/<%= @band.id() %>" method="post">
   <label for="deleted">Remove band: </label>
@@ -18,3 +17,6 @@
 
   <button type="submit">Delete Band</button>
 </form>
+
+<br>
+<p><a href="/" >Back to home</a></p>

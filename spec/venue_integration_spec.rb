@@ -13,7 +13,7 @@ describe('the venue paths for bands and venues app', type: :feature) do
       click_link('Click here for Venues!')
       fill_in('name', with: 'plaza')
       click_button('Add')
-      expect(page).to(have_content('Success!'))
+      expect(page).to(have_content('Plaza'))
     end
   end
 

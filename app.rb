@@ -80,7 +80,8 @@ end
 
 get ('/venues/:id') do
   @venue = Venue.find(params.fetch("id").to_i())
-  @bands = @venue.bands()
+  #@bands = @venue.bands()
+  @bands = Band.all()
   erb(:venue)
 end
 
@@ -94,4 +95,13 @@ post('/venues/:id/bands') do
   else
     erb(:errors)
   end
+end
+
+patch("/venues/:id") do
+  venue_id = params.fetch("id").to_i()
+  @venue = Venue.find(venue_id)
+  band_ids = params.fetch("band_ids")
+  @venue.update({:band_ids => band_ids})
+  @bands = Band.all()
+  erb(:venue)
 end

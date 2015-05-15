@@ -14,7 +14,7 @@ describe('the band paths for bands and venues app', type: :feature) do
       click_link('Click here for Bands')
       fill_in('name', with: 'u2')
       click_button('Add')
-      expect(page).to(have_content('Success!'))
+      expect(page).to(have_content('U2'))
     end
   end
 
@@ -44,9 +44,10 @@ describe('the band paths for bands and venues app', type: :feature) do
   describe('add a band to a venue') do
     it('allow a user to add a band to individual venue') do
       venue = Venue.create(name: 'Roadhouse')
+      Band.create(name: 'Rhcp')
       visit("/venues/#{venue.id}")
-      fill_in('name', with: 'Rhcp')
-      click_button('Add Band')
+      check('Rhcp')
+      click_button('Add bands')
       expect(page).to(have_content('Rhcp'))
     end
   end

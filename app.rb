@@ -78,3 +78,22 @@ post('/bands/:id/venues') do
     erb(:error)
   end
 end
+
+get ('/venues/:id') do
+  @venue = Venue.find(params.fetch("id").to_i())
+  @bands = @venue.bands()
+  erb(:venue)
+end
+
+post('/venues/:id/bands') do
+  id = params.fetch("id").to_i()
+  @venue = Venue.find(id)
+  name = params.fetch("name")
+  @band = Band.new({:name => name, :venue_ids => [id]})
+  #@venue = @band.venues().new(name: name)
+  if @band.save()
+    erb(:venue)
+  else
+    erb(:error)
+  end
+end

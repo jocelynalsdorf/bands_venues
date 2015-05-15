@@ -70,20 +70,11 @@ post('/bands/:id/venues') do
   id = params.fetch("id").to_i()
   @band = Band.find(id)
   name = params.fetch("name")
-  #@venue = Venue.new({:name => name, band_ids => [id]})
-  @venue = @band.venues().new(name: name)
+  @venue = Venue.new({:name => name, :band_ids => [id]})
+  #@venue = @band.venues().new(name: name)
   if @venue.save()
     erb(:band)
   else
     erb(:error)
   end
 end
-
-# get('/bands/:band_id/venues/:id') do
-#   band_id = params.fetch('band_id').to_i()
-#   id = params.fetch('id').to_i()
-#   @band = Band.find(band_id)
-#   @venue = Venue.find(id)
-#
-#   erb(:recipe)
-# end

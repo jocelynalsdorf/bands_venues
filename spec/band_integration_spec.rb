@@ -39,5 +39,4 @@ describe('the band paths for bands and venues app', type: :feature) do
       expect(page).to_not(have_content('radness'))
     end
   end
-
 end

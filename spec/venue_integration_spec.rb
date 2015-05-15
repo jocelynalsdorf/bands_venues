@@ -16,4 +16,14 @@ describe('the venue paths for bands and venues app', type: :feature) do
       expect(page).to(have_content('Success!'))
     end
   end
+
+  describe('add a venue to a band') do
+    it('allow a user to add a venue to individual band') do
+      band = Band.create(name: 'u2')
+      visit("/bands/#{band.id}")
+      fill_in('name', with: 'Roadhouse')
+      click_button('Add Venue')
+      expect(page).to(have_content('Roadhouse'))
+    end
+  end
 end

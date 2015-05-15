@@ -92,7 +92,8 @@ post('/venues/:id/bands') do
   @band = Band.new({:name => name, :venue_ids => [id]})
   #@venue = @band.venues().new(name: name)
   if @band.save()
-    erb(:venue)
+    redirect back
+    #erb(:venue)
   else
     erb(:error)
   end

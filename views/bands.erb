@@ -4,20 +4,20 @@
 <ul>
   <% @bands.each() do |band| %>
   <li><a href="/bands/<%= band.id() %>"><%= band.name %></a>
-    <br><a href="/bands/<%= band.id() %>/edit">Update this band</a></li>
-    <% end %>
-  </ul>
-  <% else %>
-  <h2> You currently have no bands!</h2>
+  <br><a href="/bands/<%= band.id() %>/edit">Update this band</a></li>
   <% end %>
+</ul>
+<% else %>
+<h2> You currently have no bands!</h2>
+<% end %>
 
-  <h3>Add a New band</h3>
+<h3>Add a New band</h3>
 
-  <form action="/bands" method="post">
-    <label for="name">Band Name</label>
-    <input id="name" name="name" type="text">
-    <button type="submit">Add Band</button>
-  </form>
+<form action="/bands" method="post">
+  <label for="name">Band Name</label>
+  <input id="name" name="name" type="text">
+  <button type="submit">Add Band</button>
+</form>
 <br>
 <br>
 <p><a href="/" >Back to home</a></p>

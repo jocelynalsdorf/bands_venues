@@ -2,7 +2,7 @@
 <h1>Here are the bands for <%= @venue.name() %></h1>
 <ul>
   <% @venue.bands().each() do |band| %>
-  <li><a href='/venues/<%=@venue.id()%>/band/<%= band.id() %>'><%= band.name() %></a></li>
+    <li><%= band.name() %></li>
   <% end %>
 </ul>
 <% else %>
@@ -14,13 +14,12 @@
 <h2>Add a band to this venue</h2>
 
 <form action="/venues/<%=@venue.id()%>/bands" method="post">
-  <label for="name">Venue Name</label>
+  <label for="name">Band Name</label>
   <input id="name" name="name" type="text">
   <br>
   <br>
   <button type="submit">Add Band</button>
 </form>
-
 <br>
 <div class="container">
   <a href="/venues">Back To All Venues</a>

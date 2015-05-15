@@ -28,6 +28,7 @@ describe('the band paths for bands and venues app', type: :feature) do
       expect(page).to(have_content('Alienz'))
     end
   end
+
   describe('delete a band') do
     it('allow a user to delete a band') do
       Band.create(name: 'radness')

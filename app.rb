@@ -103,5 +103,6 @@ patch("/venues/:id") do
   band_ids = params.fetch("band_ids")
   @venue.update({:band_ids => band_ids})
   @bands = Band.all()
-  erb(:venue)
+  redirect back
+  
 end

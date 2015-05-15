@@ -7,6 +7,7 @@ set(:show_exceptions, false)
 
 
 describe('the band paths for bands and venues app', type: :feature) do
+
   describe('add band functionality') do
     it('allow a user to add a band') do
       visit('/')

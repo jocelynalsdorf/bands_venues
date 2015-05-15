@@ -17,7 +17,7 @@ describe('the venue paths for bands and venues app', type: :feature) do
     end
   end
 
-  describe('add a venue to a band') do
+  describe('add a venue to a specific band') do
     it('allow a user to add a venue to individual band') do
       band = Band.create(name: 'u2')
       visit("/bands/#{band.id}")

@@ -97,12 +97,15 @@ post('/venues/:id/bands') do
   end
 end
 
-patch("/venues/:id") do
+post("/venues/:id") do
   venue_id = params.fetch("id").to_i()
   @venue = Venue.find(venue_id)
   band_ids = params.fetch("band_ids")
-  @venue.update({:band_ids => band_ids})
+  x = Band.find(band_ids)
+  @venue.bands.push(x)
   @bands = Band.all()
+ 
   redirect back
-  
+
 end
+

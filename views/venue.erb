@@ -4,7 +4,7 @@
 
 <% if @bands.any?() %>
 <form action="/venues/<%= @venue.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
+ 
     <% @bands.each() do |band| %>
   <div class="checkbox">
     <label>
